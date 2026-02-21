@@ -1,0 +1,46 @@
+# ─── Secrets ─────────────────────────────────────────────────────────────────
+# Never commit real API keys
+backend/.env
+.env
+.env.local
+.env.*.local
+
+# ─── Python ──────────────────────────────────────────────────────────────────
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+*.egg
+.venv/
+venv/
+env/
+.Python
+
+# ─── Node / Next.js ──────────────────────────────────────────────────────────
+# (frontend/.gitignore handles most of this, root covers repo-wide)
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+npm-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# ─── Generated / local-only files ────────────────────────────────────────────
+PLAN.pdf
+INTERVIEW_PREP.pdf
+CONTINUATION.md
+generate_pdf.py
+generate_interview_pdf.py
+
+# ─── OS / editor ─────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/settings.json
