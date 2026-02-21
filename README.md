@@ -117,11 +117,11 @@ nexus-research/
 Browser                          FastAPI                       External APIs
   │                                 │
   │  POST /api/research             │
-  │ ─────────────────────────────► ││
+  │ ─────────────────────────────►  │
   │  ← { research_id }              │
   │                                 │
   │  GET /api/research/{id}/stream  │
-  │ ─────────────────────────────► ││
+  │ ─────────────────────────────►  │
   │                                 │  ┌─ Agentic Loop ──────────────────┐
   │                                 │  │  Claude (tool_use)              │
   │  ← SSE: agent_thinking          │  │    → web_search ──────────────► Tavily
