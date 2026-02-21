@@ -117,20 +117,20 @@ nexus-research/
 Browser                          FastAPI                       External APIs
   │                                 │
   │  POST /api/research             │
-  │ ─────────────────────────────► │
+  │ ─────────────────────────────► ││
   │  ← { research_id }              │
   │                                 │
   │  GET /api/research/{id}/stream  │
-  │ ─────────────────────────────► │
+  │ ─────────────────────────────► ││
   │                                 │  ┌─ Agentic Loop ──────────────────┐
   │                                 │  │  Claude (tool_use)              │
   │  ← SSE: agent_thinking          │  │    → web_search ──────────────► Tavily
-  │  ← SSE: tool_call (web_search)  │  │    ← results                   │
+  │  ← SSE: tool_call (web_search)  │  │    ← results                    │
   │  ← SSE: tool_result             │  │    → extract_page ────────────► Tavily
-  │  ← SSE: tool_call (extract)     │  │    ← page content              │
-  │  ← SSE: tool_result             │  │    → write_section (internal)  │
-  │  ← SSE: report_section          │  │    → mark_complete (internal)  │
-  │  ← SSE: complete                │  └────────────────────────────────┘
+  │  ← SSE: tool_call (extract)     │  │    ← page content               │
+  │  ← SSE: tool_result             │  │    → write_section (internal)   │
+  │  ← SSE: report_section          │  │    → mark_complete (internal)   │
+  │  ← SSE: complete                │  └─────────────────────────────────┘
 ```
 
 The `write_section` trick: instead of one giant text block at the end, Claude calls `write_section` for each section — the orchestrator intercepts this and immediately sends it as an SSE event, enabling the live report-building effect.
